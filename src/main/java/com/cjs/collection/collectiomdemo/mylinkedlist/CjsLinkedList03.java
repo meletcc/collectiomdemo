@@ -3,12 +3,12 @@ package com.cjs.collection.collectiomdemo.mylinkedlist;
 /**
  * 自定义一个链表
  * 包含第一个元素和最后一个元素、还有链表大小
- * 第二个版本：增加get方法
+ * 第三个版本：增加remove方法
  *
  * @author 陈峻松
- * @date 2019/4/15
+ * @date 2019/6/1
  */
-public class CjsLinkedList02 {
+public class CjsLinkedList03 {
 
     private Node first;
     private Node last;
@@ -59,6 +59,16 @@ public class CjsLinkedList02 {
         if (index < 0 || index > size - 1) {
             throw new RuntimeException("索引范围不合法" + index);
         }
+        return getNode(index) != null ? getNode(index).getElement() : null;
+    }
+
+    /**
+     * 根据索引返回Node结点
+     *
+     * @param index 索引
+     * @return 结点
+     */
+    public Node getNode(int index) {
         Node temp = null;
         if (index <= (size >> 1)) {// 相当于除以2
             temp = first;
@@ -71,7 +81,20 @@ public class CjsLinkedList02 {
                 temp = temp.getPrevious();
             }
         }
-        return temp.getElement();
+        return temp;
+    }
+
+    /**
+     * remove方法
+     */
+    public void remove(int index) {
+        Node removeNode = getNode(index);
+        if (removeNode != null) {
+            Node previous = removeNode.getPrevious();
+            Node next = removeNode.getNext();
+
+        }
+
     }
 
     /**
@@ -84,14 +107,16 @@ public class CjsLinkedList02 {
     }
 
     public static void main(String[] args) {
-        CjsLinkedList02 cjsLinkedList01 = new CjsLinkedList02();
-        cjsLinkedList01.add("a");
-        cjsLinkedList01.add("b");
-        cjsLinkedList01.add("c");
-        System.out.println(cjsLinkedList01);
+        CjsLinkedList03 cjsLinkedList03 = new CjsLinkedList03();
+        cjsLinkedList03.add("a");
+        cjsLinkedList03.add("b");
+        cjsLinkedList03.add("c");
+        cjsLinkedList03.add("d");
+        cjsLinkedList03.add("f");
+        System.out.println(cjsLinkedList03);
 
-        Object o = cjsLinkedList01.get(2);
-        System.out.println(cjsLinkedList01.size());
+        Object o = cjsLinkedList03.get(4);
+        System.out.println(cjsLinkedList03.size());
         System.out.println(o);
     }
 }
