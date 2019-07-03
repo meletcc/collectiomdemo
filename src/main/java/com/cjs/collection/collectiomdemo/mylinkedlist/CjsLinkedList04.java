@@ -3,12 +3,12 @@ package com.cjs.collection.collectiomdemo.mylinkedlist;
 /**
  * 自定义一个链表
  * 包含第一个元素和最后一个元素、还有链表大小
- * 第三个版本：增加remove方法
+ * 第四个版本：增加插入结点方法，add
  *
  * @author 陈峻松
  * @date 2019/6/1
  */
-public class CjsLinkedList03 {
+public class CjsLinkedList04 {
 
     private Node first;
     private Node last;
@@ -18,7 +18,6 @@ public class CjsLinkedList03 {
     public String toString() {
         StringBuilder sb = new StringBuilder("[");
         Node temp = first;
-
         while (temp != null) {
             sb.append(temp.getElement() + ",");
             temp = temp.getNext();
@@ -49,6 +48,26 @@ public class CjsLinkedList03 {
     }
 
     /**
+     * 在指定索引位置插入结点
+     *
+     * @param index  需要插入的位置
+     * @param object 插入的内容
+     */
+    public void add(int index, Object object) {
+        // 需要考虑的事情：结点判空；首末结点处理
+        Node newNode = new Node(object);
+        Node temp = getNode(index);
+        if (temp != null) {
+            Node up = temp.getPrevious();
+            up.setNext(newNode);
+            newNode.setPrevious(up);
+            newNode.setNext(temp);
+            temp.setPrevious(newNode);
+            size++;
+        }
+    }
+
+    /**
      * 根据索引获取元素
      * 从第一个节点开始找，找到index为止，效率不高。可以采用二分法，往前或往后找
      *
@@ -64,6 +83,7 @@ public class CjsLinkedList03 {
 
     /**
      * 根据索引返回Node结点
+     * 链表查找效率很低，增删效率高
      *
      * @param index 索引
      * @return 结点
@@ -124,7 +144,7 @@ public class CjsLinkedList03 {
     }
 
     public static void main(String[] args) {
-        CjsLinkedList03 cjsLinkedList03 = new CjsLinkedList03();
+        CjsLinkedList04 cjsLinkedList03 = new CjsLinkedList04();
         cjsLinkedList03.add("a");
         cjsLinkedList03.add("b");
         cjsLinkedList03.add("c");
