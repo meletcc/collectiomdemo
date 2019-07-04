@@ -8,6 +8,10 @@ import java.util.List;
  * 测试 Collection接口中的方法
  * Collection的子接口 Set、List接口同样有这些方法，同时还有其他的方法
  * 需要看底层实现
+ * <p>
+ * Vector底层使用数组实现的List，相关方法加了同步检查。“线程安全，效率低”
+ * 线程安全：用Vector
+ * 不考虑线程安全：查找多用ArrayList，增删多用LinkedList
  *
  * @author 陈峻松
  * @date 2019/4/12
