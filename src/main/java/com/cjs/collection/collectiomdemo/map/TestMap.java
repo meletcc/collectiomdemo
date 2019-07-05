@@ -6,9 +6,10 @@ import java.util.Set;
 
 /**
  * 测试Map的常用方法
- * Map成对存储，键值都可以是任何对象
+ * Map键值成对存储，键值都可以是任何对象
  * Map接口的实现类：HashMap、TreeMap、HashTable、Properties等
- * HashMap底层实现采用了哈希表（很重要的数据结构），打开源码看HashMap结构-核心位桶数组
+ * HashMap底层实现采用了哈希表（很重要的数据结构）
+ * 打开源码看HashMap的结构-核心为：位桶数组（结点数组Entry[]\Node[]）
  * 哈希表的基本结构就是：“数组+链表”，结合了两者的优点
  *
  * @author 陈峻松
