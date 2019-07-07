@@ -1,21 +1,35 @@
 package com.cjs.collection.collectiomdemo.myhashmap;
 
 /**
- * 自定义的HashMap
- * 实现了put方法增加键值对，并解决了键重复时覆盖相应的节点，同时解决相同hash值在同一链表追加的问题
+ * 重写toString方法，方便显示map键值对的信息
  *
  * @author 陈峻松
  * @date 2019/7/6
  */
-public class MyHashMap01 {
+public class MyHashMap02 {
 
     // 核心位桶数组，bucket array
     private Node2[] table;
-
     // 存放的键值对个数
     private int size;
 
-    public MyHashMap01() {
+    @Override
+    public String toString() {
+        // {11:aa,22:bb,33:cc}
+        StringBuilder sb = new StringBuilder("{");
+        // 嵌套循环：外循环遍历位桶数组，内循环遍历链表
+        for (int i = 0; i < table.length; i++) {
+            Node2 temp = table[i];
+            while (temp != null) {
+                sb.append(temp.getK() + ":" + temp.getV() + ",");
+                temp = temp.getNext();
+            }
+        }
+        sb.setCharAt(sb.length() - 1, '}');
+        return sb.toString();
+    }
+
+    public MyHashMap02() {
         table = new Node2[16];// 长度一般为2的整数幂
     }
 
@@ -75,18 +89,18 @@ public class MyHashMap01 {
      * @return 哈希值
      */
     private int myHash(int v, int length) {
-        System.out.println(v & (length - 1));// 直接位运算，效率高
-        System.out.println(v % length);// 取模运算，效率低
+//        System.out.println(v & (length - 1));// 直接位运算，效率高
+//        System.out.println(v % length);// 取模运算，效率低
         return v & (length - 1);
     }
 
     public static void main(String[] args) {
-        MyHashMap01 myHashMap01 = new MyHashMap01();
-        myHashMap01.put(10, "aa");
-        myHashMap01.put(20, "bb");
-        myHashMap01.put(30, "cc");
-        myHashMap01.put(30, "eeee");
-        System.out.println(myHashMap01);
+        MyHashMap02 myHashMap02 = new MyHashMap02();
+        myHashMap02.put(10, "aa");
+        myHashMap02.put(20, "bb");
+        myHashMap02.put(30, "cc");
+        myHashMap02.put(30, "eeee");
+        System.out.println(myHashMap02);
     }
 
 }
