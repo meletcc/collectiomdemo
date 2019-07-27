@@ -1,5 +1,3 @@
-package com.cjs.collection.collectiomdemo;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
