@@ -30,8 +30,8 @@ public class Demo2_Synchronized {
 class Printer2 {
     Demo d = new Demo();
 
-    //非静态的同步方法的锁对象是this
-    //静态的同步方法的锁对象是该类的字节码对象
+    //非静态的同步方法的锁对象是this，是当前对象的资源
+    //静态的同步方法的锁对象是该类的字节码对象，Class
     //同步方法只需要在方法上加synchronized关键字即可
     public static synchronized void print1() {
         System.out.print("黑");
@@ -43,7 +43,7 @@ class Printer2 {
     }
 
     public static void print2() {
-        //synchronized(new Demo()) {							//锁对象不能用匿名对象,因为匿名对象不是同一个对象
+        //synchronized(new Demo()) {//锁对象不能用匿名对象,因为匿名对象不是同一个对象
         synchronized (Printer2.class) {
             System.out.print("传");
             System.out.print("智");

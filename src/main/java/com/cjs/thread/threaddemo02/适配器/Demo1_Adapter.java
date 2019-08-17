@@ -2,10 +2,6 @@ package com.cjs.thread.threaddemo02.适配器;
 
 public class Demo1_Adapter {
 
-    /**
-     * @param args 适配器设计模式
-     *             鲁智深
-     */
     public static void main(String[] args) {
 
     }
