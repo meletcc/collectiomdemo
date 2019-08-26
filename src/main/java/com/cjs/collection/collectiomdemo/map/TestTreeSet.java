@@ -7,9 +7,6 @@ import java.util.TreeSet;
  * TreeSet底层使用TreeMap实现的，通过key才存储set的元素
  * TreeSet需要对内部存储的元素进行排序，因此对应的类需要实现Comparable接口
  * 熟悉Comparable接口的使用
- *
- * @author 陈峻松
- * @date 2019/7/7
  */
 public class TestTreeSet {
 

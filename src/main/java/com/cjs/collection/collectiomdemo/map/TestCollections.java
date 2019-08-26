@@ -6,11 +6,8 @@ import java.util.List;
 
 /**
  * 测试工具类Collections。java.util.Collections
- * 提供了对Set、List、Map进行排序、填充、查找元素的辅助方法
+ * 提供了对Set、List、Map进行排序、填充、查找元素、线程安全化处理的辅助方法
  * collection是接口
- *
- * @author 陈峻松
- * @date 2019/7/8
  */
 public class TestCollections {
 
@@ -27,6 +24,9 @@ public class TestCollections {
         Collections.sort(list);// 按照递增的方式排序（数字递增、字母按照abc、自定义类：Comparable接口）
         System.out.println(list);
         System.out.println(Collections.binarySearch(list, "c0"));// 二分查找、折半查找
+
+        List<String> synchronizedList = Collections.synchronizedList(list);
+        System.out.println(synchronizedList);
 
     }
 

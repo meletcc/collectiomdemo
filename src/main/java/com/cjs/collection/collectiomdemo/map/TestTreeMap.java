@@ -6,12 +6,9 @@ import java.util.TreeMap;
 /**
  * 1.TreeMap的使用，主要用于key或者value需要排序时候
  * 2.Comparable接口的使用
- * 3.HashTable与HashMap的区别：HashMap线程不安全，效率高，允许key或value为null
- * HashTable线程安全，效率低，不允许key和value为null
+ * 3.HashTable与HashMap的区别：HashMap线程不安全，效率高，允许key或value为null，实现Map接口
+ * HashTable线程安全，效率低，不允许key和value为null，继承Dictionary类
  * 其他都一样
- *
- * @author 陈峻松
- * @date 2019/7/7
  */
 public class TestTreeMap {
 

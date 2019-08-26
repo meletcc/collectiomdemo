@@ -2,9 +2,6 @@ package com.cjs.collection.collectiomdemo.generic;
 
 /**
  * 测试泛型
- *
- * @author 陈峻松
- * @date 2019/4/11
  */
 public class TestGeneric {
 
@@ -17,7 +14,7 @@ public class TestGeneric {
 //        String string = (String) myCollection.get(2);
 //        Integer integer = (Integer) myCollection.get(4);
 
-        // 这里相当于传入了一个数据类型的实际参数-String
+        // 这里相当于传入了一个数据类型的实际参数-String，只能传String类型
         MyCollection<String> objectMyCollection = new MyCollection<>();
         objectMyCollection.set("String", 0);
         String s = objectMyCollection.get(0);

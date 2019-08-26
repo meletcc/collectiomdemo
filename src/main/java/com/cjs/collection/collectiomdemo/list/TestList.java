@@ -6,15 +6,8 @@ import java.util.List;
 
 /**
  * 测试 Collection接口中的方法
- * Collection的子接口 Set、List接口同样有这些方法，同时还有其他的方法
- * 需要看底层实现
- * <p>
- * Vector底层使用数组实现的List，相关方法加了同步检查。“线程安全，效率低”
- * 线程安全：用Vector
- * 不考虑线程安全：查找多用ArrayList，增删多用LinkedList
- *
- * @author 陈峻松
- * @date 2019/4/12
+ * Collection的子接口 Set、List接口同样有这些方法，同时还有其他的方法，Set没变化
+ * 需要了解底层实现
  */
 public class TestList {
 
@@ -35,7 +28,7 @@ public class TestList {
         // 转化为Object数组
         Object[] objects = c.toArray();
         System.out.println(objects);
-        // 注意，add和remove方法，操作的都是引用地址，对象本身还是存在， 只是remove了而已
+        // 注意，add和remove方法，操作的都是引用地址，对象本身还是存在，只是remove了而已
         c.remove("老二");
         // 清空所有元素
         c.clear();
@@ -56,7 +49,7 @@ public class TestList {
         System.out.println("c1原始的:" + c1);
 
         // addAll()，把参数中的集合全部加入到前面的集合
-//        c1.addAll(c2);
+////        c1.addAll(c2);
 //        System.out.println("c1和c2操作后:" + c1);
         // removeAll()，把和c2中的相同的元素移除
 //        c1.removeAll(c2);
@@ -65,12 +58,12 @@ public class TestList {
 //        c1.retainAll(c2);
 //        System.out.println("c1和c2操作后:" + c1);
         // 看是否c2全部包含于c1中
-        boolean b = c1.containsAll(c2);
-        System.out.println(b);
+//        boolean b = c1.containsAll(c2);
+//        System.out.println(b);
     }
 
     /**
-     * 测试List接口中的常用方法
+     * List接口中的常用方法
      */
     public static void testList() {
         List<String> list = new ArrayList<>();
@@ -100,8 +93,6 @@ public class TestList {
         // 返回最后一次出现该元素的位置，未找到返回-1
         int b1 = list.lastIndexOf("b");
         System.out.println(b1);
-
     }
-
 
 }
